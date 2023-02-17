@@ -1,18 +1,19 @@
+import { IPost } from "../.."
+import { dateFormatter } from "../../../../utils/formatter"
 import { PostContainer } from "./styles"
 
-export function Post() {
+interface PostProps {
+  post: IPost
+}
+
+export function Post({ post }: PostProps) {
   return (
-    <PostContainer to="/post/1">
+    <PostContainer to={`/post/${post.number}`}>
       <div>
-        <strong>Coffe-Delivery</strong>
-        <span>Há 1 semana</span>
+        <strong>{post.title}</strong>
+        <span> {dateFormatter.format(new Date(post.created_at))}</span>
       </div>
-      <p>
-        A aplicação de hoje foi um e-commerce de cafés, no qual os clientes
-        podem selecionar as bebibas desejadas, fazer a escolha da sua forma de
-        pagamento e cadastrar em um formulário bem intuitivo e prático o
-        endereço para a entrega do seu pedido!
-      </p>
+      <p>{post.body}</p>
     </PostContainer>
   )
 }
