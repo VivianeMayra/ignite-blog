@@ -4,6 +4,7 @@ export const SearchInputContainer = styled.form`
   width: 100%;
   margin-top: 4.5rem;
   margin-bottom: 3rem;
+
   header {
     display: flex;
     align-items: center;
